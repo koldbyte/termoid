@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name=""/>
+  
+  <group name="Execute">
+    <entry name="command" type="String">
+      <default>/usr/bin/nethogs</default>
+    </entry>
+  </group>
+  
+  <group name="Appearance">
+    <entry name="fontfamily" type="String">
+      <label>Font Family</label>
+      <default>Monospace</default>
+    </entry>
+    <entry name="fontsize" type="String">
+      <label>Font size</label>
+      <min>1</min>
+      <default>12</default>
+    </entry>
+    <entry name="colorscheme" type="Int">
+      <default>2</default>
+      <min>0</min>
+      <max>7</max>
+    </entry>
+    <entry name="colorschemetext" type="String">
+      <label>Color Scheme Name</label>
+      <default>Linux</default>
+    </entry>
+  </group>
+</kcfg>
+
