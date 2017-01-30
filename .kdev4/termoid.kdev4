@@ -63,3 +63,6 @@ Project Target=
 Use External Terminal=true
 Working Directory=file:///run/media/koldbyte/Data/Bhaskar_Data/Project/kde-works/plasmoid/termoid/
 isExecutable=true
+
+[Project]
+VersionControlSupport=kdevgit
