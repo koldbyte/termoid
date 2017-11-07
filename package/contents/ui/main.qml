@@ -28,6 +28,7 @@ import QtQuick.Controls 1.2
 
 Item{
     id: main
+    opacity: plasmoid.configuration.opacity / 100
 
     Layout.minimumWidth: units.gridUnit * 1
     Layout.minimumHeight: units.gridUnit * 1
@@ -54,7 +55,7 @@ Item{
     function action_openKonsole() {
         exec("konsole");
     }
-    
+    // args
     Component.onCompleted: {
         plasmoid.setAction("openKonsole", i18n("Start Konsole"), "utilities-terminal");
     }
@@ -70,7 +71,26 @@ Item{
         session: QMLTermSession{
             id: mainsession
             initialWorkingDirectory: "$HOME"
-            shellProgram: plasmoid.configuration.command == "" ? "/bin/bash" : plasmoid.configuration.command
+            
+            function prog(cmd) {
+                var l = cmd.split(' ');
+                return l.shift();
+            }
+            
+            function args(cmd) {
+                var l = cmd.split(' ');
+                l.shift();
+                return l;                       // retrun list
+            }
+            
+            Component.onCompleted: {
+
+                console.log("Starting: %1 %2".arg(prog(plasmoid.configuration.command)).arg(args(plasmoid.configuration.command)));
+            }
+
+            shellProgram: plasmoid.configuration.command == "" ? "/bin/bash" : prog(plasmoid.configuration.command)
+            shellProgramArgs: args(plasmoid.configuration.command)
+            
         }
         
         Component.onCompleted: mainsession.startShellProgram();

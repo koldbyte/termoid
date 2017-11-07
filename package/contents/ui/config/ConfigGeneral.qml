@@ -13,6 +13,7 @@ ConfigPage {
     property alias cfg_fontsizeString: fontsize.value
     property alias cfg_colorschemeInt: colorscheme.currentIndex
     property string cfg_colorschemetextString: cbItems.get(colorscheme.currentIndex).text
+    property alias cfg_opacityInt: opacity.value
 
     Component.onCompleted: {
         cfg_commandString = plasmoid.configuration.command;
@@ -20,6 +21,7 @@ ConfigPage {
         cfg_fontsizeString = plasmoid.configuration.fontsize;
         cfg_colorschemeInt = plasmoid.configuration.colorscheme;
         colorscheme.currentIndex = cfg_colorschemeInt;
+        cfg_opacityInt = plasmoid.configuration.opacity;
         
         console.log("ConfigPage loaded");
     }
@@ -44,6 +46,13 @@ ConfigPage {
         plasmoid.configuration.colorschemetext = cbItems.get(colorscheme.currentIndex).text;
         console.log("Color Scheme Updated " + colorscheme.currentIndex + " " + cbItems.get(colorscheme.currentIndex).text);        
     }
+    
+
+    onCfg_opacityIntChanged: {
+        plasmoid.configuration.opacity = opacity.value;
+        console.log("Opacity Widget Updated " + opacity.value);        
+    }
+    
     
     GroupBox {
         Layout.fillWidth: true
@@ -98,6 +107,18 @@ ConfigPage {
                         ListElement { text: "WhiteOnBlack"; }
                         ListElement { text: "BreezeModified"; }
                     }
+                }
+            }
+            RowLayout {
+                Text {
+                   text: i18n("Opacity Widget") 
+                }
+                
+                SpinBox {
+                    id: opacity
+                    suffix: i18n(" %")
+                    maximumValue: 100
+                    stepSize: 1
                 }
             }
         }
