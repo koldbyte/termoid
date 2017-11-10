@@ -7,7 +7,7 @@
   
   <group name="Execute">
     <entry name="command" type="String">
-      <default>colortail -f /var/log/syslog</default>
+      <default>/usr/bin/nethogs</default>
     </entry>
   </group>
   
@@ -38,4 +38,3 @@
     </entry>
   </group>
 </kcfg>
-

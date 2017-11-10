@@ -55,7 +55,7 @@ Item{
     function action_openKonsole() {
         exec("konsole");
     }
-
+    
     Component.onCompleted: {
         plasmoid.setAction("openKonsole", i18n("Start Konsole"), "utilities-terminal");
     }
@@ -80,7 +80,7 @@ Item{
             function args(cmd) {
                 var l = cmd.split(' ');
                 l.shift();
-                return l;                       // retrun list
+                return l;
             }
             
             Component.onCompleted: {

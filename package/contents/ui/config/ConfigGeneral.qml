@@ -47,12 +47,10 @@ ConfigPage {
         console.log("Color Scheme Updated " + colorscheme.currentIndex + " " + cbItems.get(colorscheme.currentIndex).text);        
     }
     
-
     onCfg_opacityIntChanged: {
         plasmoid.configuration.opacity = opacity.value;
         console.log("Opacity Widget Updated " + opacity.value);        
     }
-    
     
     GroupBox {
         Layout.fillWidth: true
@@ -111,7 +109,7 @@ ConfigPage {
             }
             RowLayout {
                 Text {
-                   text: i18n("Opacity Widget") 
+                   text: i18n("Opacity")
                 }
                 
                 SpinBox {
