@@ -1,33 +1,36 @@
 # Termoid
 
-Terminal in a plasmoid
-
-The plasmoid depends on `qmltermwidget`.
+Terminal in a plasmoid.  
+Run your favourite terminal applications like nethogs, htop, colortail etc. on your desktop as a widget.
 
 # Features
 * Terminal :)
-* Font family and Font size configurable
-* Comes with inbuilt color schemes 
+* Comes with many inbuilt color schemes 
+* Configurable Font family and Font size in terminal
+* Configurable Opacity 
 
 # Screenshots
-
-# Get it 
-[Store link]TODO
+![Screenshot running Nethogs](https://cn.pling.com/img/e/6/3/4/23df0d53b03331a44f31d8b55b9fc93f6a4a.png)
 
 # Requirements
-Currently using it to show Nethogs in the plasmoid. 
-So you need to install package `nethogs`
-Dont forget to `sudo setcap "cap_net_admin,cap_net_raw+pe" /usr/bin/nethogs` as we cannot not run sudo inside this plasmoid.
+`qmltermwidget` package is required as this is the core of the plasmoid.
 
-You will also require to install `qmltermwidget` as this is the core of the plasmoid.
+Source: [Github link](https://github.com/Swordfish90/qmltermwidget)  
+Arch Distribution: [`qmltermwidget`](https://www.archlinux.org/packages/community/x86_64/qmltermwidget/)  
+AUR: [`qmltermwidget-git`](https://aur.archlinux.org/packages/qmltermwidget-git/)  
+Ubuntu: `qml-module-qmltermwidget1.0`  
 
+# Installation
+
+## KDE Store
+[Store link](https://store.kde.org/p/1169451/)
 
 ## Build it Yourself
-* Download the source[Master link]
-* Untar and cd into directory
-* ./build
-* ./install      (for first time)
-* ./reinstall    (for updating the plasmoid)
+* [Download the source](https://github.com/koldbyte/termoid/archive/master.zip)
+* Unzip and cd into directory
+* `./build`
+* `./install`      (for first time)
+* `./reinstall`    (for updating the plasmoid)
 
 Add the Termoid widget from "Add widgets" on your desktop
 
@@ -41,13 +44,17 @@ Add the Termoid widget from "Add widgets" on your desktop
 * `~/.local/share/plasma/plasmoids/`  
   Where downloaded plasmoids are stored. It's also where this plasmoid will be installed to.
 
+# Using Nethogs in Termoid
+Install package `nethogs`  
+Run `sudo setcap "cap_net_admin,cap_net_raw+pe" /usr/bin/nethogs` once on the system so that sudo permission is not required for running nethogs.
+
 # TODOs
-* Make this a proper terminal on plasmoid as keyboard input is not working currently.
-* sudo commands not runnable.
-* Adjust according to how people use it. Currently tested to run Nethogs. Need to know more usecases.
-* More configuration
-* Transparency
-  
+* Restart plasmoid command without restarting whole plasmashell.
+* Support for Keyboard input.
+* Support for button form in panel.
+* Make sudo commands runnable.
+* More configuration.
+
 # Want to learn more about Plasmoids
 ## ExampleRepositories
 
