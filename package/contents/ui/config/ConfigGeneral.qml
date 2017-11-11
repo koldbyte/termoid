@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import ".."
 // import "../../code/utils.js" as Utils
@@ -13,7 +14,9 @@ ConfigPage {
     property alias cfg_fontsizeString: fontsize.value
     property alias cfg_colorschemeInt: colorscheme.currentIndex
     property string cfg_colorschemetextString: cbItems.get(colorscheme.currentIndex).text
-    property alias cfg_opacityInt: opacity.value
+    property alias cfg_opacityInt: opacity_spin.value
+    width: 500
+    height: 250
 
     Component.onCompleted: {
         cfg_commandString = plasmoid.configuration.command;
@@ -48,52 +51,54 @@ ConfigPage {
     }
     
     onCfg_opacityIntChanged: {
-        plasmoid.configuration.opacity = opacity.value;
-        console.log("Opacity Widget Updated " + opacity.value);        
+        plasmoid.configuration.opacity = opacity_spin.value;
+        console.log("Opacity Widget Updated " + opacity_spin.value);
     }
     
     GroupBox {
         Layout.fillWidth: true
 
         ColumnLayout {
+            spacing: 8
+            anchors.fill: parent
             Layout.fillWidth: true
 
-            Text {
+            PlasmaComponents.Label {
                 text: i18n("Appearance")
                 font.bold: true
             }
 
-            RowLayout {
-                Text {
-                   text: i18n("Font") 
+            GridLayout{
+                columns: 2
+                PlasmaComponents.Label {
+                   id: text1
+                   text: i18n("Font")
                 }
-                
-                TextField {
+
+                PlasmaComponents.TextField {
                     id: fontfamily
                     placeholderText: cfg_fontfamilyString
-                    Layout.fillWidth: true
+                    Layout.fillWidth: false
                 }
-            }
-            RowLayout {
-                Text {
-                   text: i18n("Font Size") 
+
+                PlasmaComponents.Label {
+                   text: i18n("Font Size")
                 }
-                
+
                 SpinBox {
                     id: fontsize
                     suffix: i18n(" px")
                     maximumValue: 1000
                 }
-            }
-            RowLayout {
-                Text {
-                   text: i18n("Color Scheme") 
+
+                PlasmaComponents.Label {
+                   id: labelText
+                   text: i18n("Color Scheme")
                 }
-                
+
                 ComboBox {
                     id: colorscheme
                     currentIndex: plasmoid.configuration.colorscheme
-                    Layout.fillWidth: true
                     model: ListModel {
                         id: cbItems
                         ListElement { text: "BlackOnLightYellow"; }
@@ -106,15 +111,15 @@ ConfigPage {
                         ListElement { text: "BreezeModified"; }
                     }
                 }
-            }
-            RowLayout {
-                Text {
+
+                PlasmaComponents.Label {
                    text: i18n("Opacity")
                 }
-                
+
                 SpinBox {
-                    id: opacity
+                    id: opacity_spin
                     suffix: i18n(" %")
+                    minimumValue: 0
                     maximumValue: 100
                     stepSize: 1
                 }
@@ -129,13 +134,13 @@ ConfigPage {
         ColumnLayout {
             Layout.fillWidth: true
 
-            Text {
-                text: i18n("Enter command to execute")
+            PlasmaComponents.Label {
+                text: i18n("Enter command(with arguments if any) to execute")
                 font.bold: true
                 Layout.fillWidth: true
             }
 
-            TextField {
+            PlasmaComponents.TextField {
                 id: command
                 placeholderText: cfg_commandString
                 Layout.fillWidth: true

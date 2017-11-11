@@ -60,7 +60,7 @@ Item{
         plasmoid.setAction("openKonsole", i18n("Start Konsole"), "utilities-terminal");
     }
     
-    property string command: plasmoid.configuration.command || "Linux"
+    property string command: plasmoid.configuration.command || "$SHELL"
     
     QMLTermWidget {
         id: terminal
@@ -84,12 +84,11 @@ Item{
             }
             
             Component.onCompleted: {
-
                 console.log("Starting: %1 %2".arg(prog(plasmoid.configuration.command)).arg(args(plasmoid.configuration.command)));
             }
 
-            shellProgram: plasmoid.configuration.command == "" ? "/bin/bash" : prog(plasmoid.configuration.command)
-            shellProgramArgs: args(plasmoid.configuration.command)
+            shellProgram: plasmoid.configuration.command == "" ? "$SHELL" : prog(plasmoid.configuration.command)
+            shellProgramArgs: args(plasmoid.configuration.command) || []
             
         }
         
