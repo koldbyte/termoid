@@ -30,6 +30,11 @@
       <label>Color Scheme Name</label>
       <default>Linux</default>
     </entry>
+    <entry name="opacity" type="Int">
+      <label>Opacity</label>
+      <default>100</default>
+      <min>0</min>
+      <max>100</max>
+    </entry>
   </group>
 </kcfg>
-
