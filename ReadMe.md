@@ -58,7 +58,7 @@ Run `sudo setcap "cap_net_admin,cap_net_raw+pe" /usr/bin/nethogs` once on the sy
 # Want to learn more about Plasmoids
 ## ExampleRepositories
 
-Note that official KDE software is only mirrored on github, however github is much better for navigating the codebase.
+Note that official KDE software is only mirrored on GitHub, however GitHub is much better for navigating the codebase.
 
 * https://github.com/KDE/plasma-desktop/tree/master/applets
 * https://github.com/KDE/plasma-workspace/blob/master/applets
