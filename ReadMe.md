@@ -88,11 +88,13 @@ Install package `nethogs`
 Run `sudo setcap "cap_net_admin,cap_net_raw+pe" /usr/bin/nethogs` once on the system so that sudo permission is not required for running nethogs.
 
 # TODOs
+* Try packaging qmltermwidget within the plasmoid with a Cmake build. This should fix all the version issues.
+* Provide packages for major distros.
+* Support for button form in panel.
+* More configuration. (Suggestions are welcome)
 * ~Restart plasmoid command without restarting whole plasmashell.~ Use a shell. Keyboard input (along with Ctrl+C) works.
 * ~Support for Keyboard input.~ Done
-* Support for button form in panel.
 * ~Make sudo commands runnable.~ Sudo commands working now as the keyboard input is available.
-* More configuration. (Suggestions are welcome)
 
 # Want to learn more about Plasmoids
 ## ExampleRepositories
