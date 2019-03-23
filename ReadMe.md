@@ -1,34 +1,73 @@
 # Termoid
 
 Terminal in a plasmoid.  
-Run your favourite terminal applications like nethogs, htop, colortail etc. on your desktop as a widget.
+Run your favourite shell or terminal applications like nethogs, htop, colortail etc. on your desktop as a widget/plasmoid.
+
+[View on KDE Store](https://store.kde.org/p/1169451/)
 
 # Features
 * Terminal :)
+* Working keyboard and mouse input
 * Comes with many inbuilt color schemes 
 * Configurable Font family and Font size in terminal
 * Configurable Opacity 
 
 # Screenshots
+![Screenshot showing keyboard input](screenshot)
 ![Screenshot running Nethogs](https://cn.pling.com/img/e/6/3/4/23df0d53b03331a44f31d8b55b9fc93f6a4a.png)
 
 # Requirements
 `qmltermwidget` package is required as this is the core of the plasmoid.
+Note: Latest `qmltermwidget` is causing Plasma to crash. 
+Please use the [0.1.0 release](https://github.com/Swordfish90/qmltermwidget/tree/v0.1.0) or [Commit 08958f7](https://github.com/Swordfish90/qmltermwidget/commit/08958f7c83a7d05627f623b8904f3e79a0b7366b) which is known to work.
 
-Source: [Github link](https://github.com/Swordfish90/qmltermwidget)  
-Arch Distribution: [`qmltermwidget`](https://www.archlinux.org/packages/community/x86_64/qmltermwidget/)  
-AUR: [`qmltermwidget-git`](https://aur.archlinux.org/packages/qmltermwidget-git/)  
-Ubuntu: `qml-module-qmltermwidget1.0`  
+## Source
+
+[Github Source](https://github.com/Swordfish90/qmltermwidget)  
+
+Build step: `qmake && make`
+
+## Arch Distros 
+
+[`qmltermwidget` Package](https://www.archlinux.org/packages/community/x86_64/qmltermwidget/)  
+
+Install version 0.1.0 using 
+```
+sudo pacman -U https://archive.archlinux.org/packages/q/qmltermwidget/qmltermwidget-0.1.0-3-x86_64.pkg.tar.xz
+```
+
+## Ubuntu 
+
+`sudo apt-get install qml-module-qmltermwidget`  
+
+## Fedora
+[`qmltermwidget 0.1.0`](https://koji.fedoraproject.org/koji/buildinfo?buildID=1129411)
 
 # Installation
+
+## Install via KDE
+
+    Right Click Panel > Panel Options > Add Widgets
+    Get New Widgets > Download New Widgets
+    Search: Termoid
+    Install
+    Right Click your desktop > Add Widgets
+    Select Termoid
+
 
 ## KDE Store
 [Store link](https://store.kde.org/p/1169451/)
 
 ## Build it Yourself
 * [Download the source](https://github.com/koldbyte/termoid/archive/master.zip)
-* Unzip and cd into directory
-* `./build`
+
+```
+git clone https://github.com/koldbyte/termoid.git termoid
+cd termoid
+sh ./install
+```
+
+Note:  
 * `./install`      (for first time)
 * `./reinstall`    (for updating the plasmoid)
 
@@ -49,11 +88,11 @@ Install package `nethogs`
 Run `sudo setcap "cap_net_admin,cap_net_raw+pe" /usr/bin/nethogs` once on the system so that sudo permission is not required for running nethogs.
 
 # TODOs
-* Restart plasmoid command without restarting whole plasmashell.
-* Support for Keyboard input.
+* ~Restart plasmoid command without restarting whole plasmashell.~ Use a shell. Keyboard input (along with Ctrl+C) works.
+* ~Support for Keyboard input.~ Done
 * Support for button form in panel.
-* Make sudo commands runnable.
-* More configuration.
+* ~Make sudo commands runnable.~ Sudo commands working now as the keyboard input is available.
+* More configuration. (Suggestions are welcome)
 
 # Want to learn more about Plasmoids
 ## ExampleRepositories

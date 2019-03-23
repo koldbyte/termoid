@@ -21,7 +21,6 @@ ConfigPage {
 
     Component.onCompleted: {
         cfg_commandString = plasmoid.configuration.command;
-        cfg_fontfamilyString = plasmoid.configuration.fontfamily;
         cfg_fontsizeString = plasmoid.configuration.fontsize;
         cfg_colorschemeInt = plasmoid.configuration.colorscheme;
         colorscheme.currentIndex = cfg_colorschemeInt;
