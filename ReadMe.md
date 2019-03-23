@@ -13,7 +13,7 @@ Run your favourite shell or terminal applications like nethogs, htop, colortail 
 * Configurable Opacity 
 
 # Screenshots
-![Screenshot showing keyboard input](screenshot)
+![Screenshot showing keyboard input](screenshot.png)
 ![Screenshot running Nethogs](https://cn.pling.com/img/e/6/3/4/23df0d53b03331a44f31d8b55b9fc93f6a4a.png)
 
 # Requirements
