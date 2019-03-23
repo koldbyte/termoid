@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import QtQuick.Dialogs 1.2
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import ".."
@@ -10,7 +11,7 @@ ConfigPage {
     id: page
 
     property alias cfg_commandString: command.text
-    property alias cfg_fontfamilyString: fontfamily.text
+    property alias cfg_fontfamilyString: fontfamily.currentText
     property alias cfg_fontsizeString: fontsize.value
     property alias cfg_colorschemeInt: colorscheme.currentIndex
     property string cfg_colorschemetextString: cbItems.get(colorscheme.currentIndex).text
@@ -34,9 +35,9 @@ ConfigPage {
         console.log("Command Updated " + command.text);
     }
     
-    onCfg_fontfamilyStringChanged: { 
-        plasmoid.configuration.fontfamily = fontfamily.text;
-        console.log("Font Family Updated " + fontfamily.text);
+    onCfg_fontfamilyStringChanged: {
+        plasmoid.configuration.fontfamily = fontfamily.currentText;
+        console.log("Font Family Updated " + fontfamily.currentText);
     }
     
     onCfg_fontsizeStringChanged: {
@@ -75,10 +76,10 @@ ConfigPage {
                    text: i18n("Font")
                 }
 
-                PlasmaComponents.TextField {
+                ComboBox {
                     id: fontfamily
-                    placeholderText: cfg_fontfamilyString
-                    Layout.fillWidth: false
+                    model: Qt.fontFamilies()
+                    currentIndex: Qt.fontFamilies().indexOf(plasmoid.configuration.fontfamily)
                 }
 
                 PlasmaComponents.Label {
@@ -88,6 +89,7 @@ ConfigPage {
                 SpinBox {
                     id: fontsize
                     suffix: i18n(" px")
+                    value: plasmoid.configuration.fontsize
                     maximumValue: 1000
                 }
 
@@ -109,6 +111,7 @@ ConfigPage {
                         ListElement { text: "GreenOnBlack"; }
                         ListElement { text: "WhiteOnBlack"; }
                         ListElement { text: "BreezeModified"; }
+                        ListElement { text: "cool-retro-term"; }
                     }
                 }
 
@@ -118,6 +121,7 @@ ConfigPage {
 
                 SpinBox {
                     id: opacity_spin
+                    value: plasmoid.configuration.opacity
                     suffix: i18n(" %")
                     minimumValue: 0
                     maximumValue: 100
@@ -147,4 +151,5 @@ ConfigPage {
             }
         }
     }
+
 }

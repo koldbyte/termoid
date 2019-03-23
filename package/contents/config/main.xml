@@ -7,7 +7,7 @@
   
   <group name="Execute">
     <entry name="command" type="String">
-      <default>/usr/bin/nethogs</default>
+      <default></default>
     </entry>
   </group>
   
@@ -24,7 +24,7 @@
     <entry name="colorscheme" type="Int">
       <default>2</default>
       <min>0</min>
-      <max>7</max>
+      <max>8</max>
     </entry>
     <entry name="colorschemetext" type="String">
       <label>Color Scheme Name</label>
@@ -36,5 +36,14 @@
       <min>0</min>
       <max>100</max>
     </entry>
+    <entry name="width" type="Int">
+      <default>480</default>
+      <min>10</min>
+    </entry>
+    <entry name="height" type="Int">
+      <default>640</default>
+      <min>10</min>
+    </entry>
+
   </group>
 </kcfg>
