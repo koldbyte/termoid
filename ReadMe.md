@@ -38,7 +38,19 @@ sudo pacman -U https://archive.archlinux.org/packages/q/qmltermwidget/qmltermwid
 
 ## Ubuntu 
 
-`sudo apt-get install qml-module-qmltermwidget`  
+You would need to add a PPA to install "cool-retro-term".
+Steps:
+For Ubuntu 18.04, 18.10, 19.04, Linux Mint 19 and higher, use this PPA:
+
+sudo add-apt-repository ppa:vantuz/cool-retro-term
+sudo apt update
+sudo apt install cool-retro-term
+
+For Ubuntu 16.04 and Linux Mint 18 series, use this PPA:
+
+sudo add-apt-repository ppa:noobslab/apps
+sudo apt update
+sudo apt-get install cool-retro-term
 
 ## Fedora
 [`qmltermwidget 0.1.0`](https://koji.fedoraproject.org/koji/buildinfo?buildID=1129411)
