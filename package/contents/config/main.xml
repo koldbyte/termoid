@@ -44,6 +44,9 @@
       <default>640</default>
       <min>10</min>
     </entry>
-
+    <entry name="showBackground" type="Bool">
+      <label>Show Background</label>
+      <default>true</default>
+    </entry>
   </group>
 </kcfg>

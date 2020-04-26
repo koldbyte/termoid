@@ -5,7 +5,6 @@ import QtQuick.Dialogs 1.2
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import ".."
-// import "../../code/utils.js" as Utils
 
 ConfigPage {
     id: page
@@ -16,6 +15,7 @@ ConfigPage {
     property alias cfg_colorschemeInt: colorscheme.currentIndex
     property string cfg_colorschemetextString: cbItems.get(colorscheme.currentIndex).text
     property alias cfg_opacityInt: opacity_spin.value
+    property alias cfg_showBackgroundBool: show_background_switch.checked
     width: 500
     height: 250
 
@@ -25,6 +25,7 @@ ConfigPage {
         cfg_colorschemeInt = plasmoid.configuration.colorscheme;
         colorscheme.currentIndex = cfg_colorschemeInt;
         cfg_opacityInt = plasmoid.configuration.opacity;
+        cfg_showBackgroundBool = plasmoid.configuration.showBackground
         
         console.log("ConfigPage loaded");
     }
@@ -53,6 +54,11 @@ ConfigPage {
     onCfg_opacityIntChanged: {
         plasmoid.configuration.opacity = opacity_spin.value;
         console.log("Opacity Widget Updated " + opacity_spin.value);
+    }
+
+    onCfg_showBackgroundBoolChanged: {
+        plasmoid.configuration.showBackground = show_background_switch.checked;
+        console.log("Show Background Updated " + show_background_switch.checked);
     }
     
     GroupBox {
@@ -126,6 +132,15 @@ ConfigPage {
                     maximumValue: 100
                     stepSize: 1
                 }
+
+                PlasmaComponents.Label {
+                   text: i18n("Show Background")
+                }
+
+                CheckBox {
+                    id: show_background_switch
+                    checked: plasmoid.configuration.showBackground
+                }
             }
         }
     }
@@ -143,7 +158,7 @@ ConfigPage {
                 Layout.fillWidth: true
             }
 
-            PlasmaComponents.TextField {
+            TextField {
                 id: command
                 placeholderText: cfg_commandString
                 Layout.fillWidth: true

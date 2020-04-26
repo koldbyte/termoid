@@ -1,0 +1,6 @@
+*.plasmoid
+*.qmlc
+*.jsc
+*.mo
+/dist
+*/.kdev4/*
