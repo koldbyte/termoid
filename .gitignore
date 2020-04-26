@@ -3,4 +3,7 @@
 *.jsc
 *.mo
 /dist
-*/.kdev4/*
+.kdev4/*
+*.kdev4
+build/*
+target/*
