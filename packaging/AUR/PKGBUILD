@@ -1,6 +1,6 @@
 # Maintainer: Bhaskar Divya <bhaskar.divya007@gmail.com>
 pkgname=termoid
-pkgver=0.4.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Terminal on a desktop"
 arch=('i686' 'x86_64')
