@@ -141,3 +141,12 @@ Note that official KDE software is only mirrored on github, however github is mu
 	* Source Code  
 		https://github.com/KDE/plasma-framework/tree/master/src/declarativeimports/
 * [plasmapkg2 source code](https://github.com/KDE/plasma-framework/blob/master/src/plasmapkg/plasmapkg.cpp)
+
+
+## Cleanup
+```
+rm -rf /usr/lib/qt/qml/qmlkonsole/
+rm -rf /usr/share/kservices5/plasma-applet-com.koldbyte.kde.termoid.desktop
+rm -rf /usr/share/metainfo/com.koldbyte.kde.termoid.appdata.xml 
+rm -rf /usr/share/plasma/plasmoids/com.koldbyte.kde.termoid
+```

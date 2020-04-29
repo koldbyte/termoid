@@ -7,3 +7,6 @@ set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
 
 add_subdirectory(qmltermwidget)
 add_subdirectory(plasmoid)
+
+# Packaging stuff (deb, rpm etc)
+add_subdirectory(packaging)
