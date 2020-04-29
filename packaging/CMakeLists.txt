@@ -5,6 +5,7 @@ include(InstallRequiredSystemLibraries)
 
 set(CPACK_PACKAGE_VENDOR "koldbyte")
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_CONTACT "Bhaskar Divya")
 set(HOMEPAGE "https://github.com/koldbyte/termoid")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY
     "Terminal on a Desktop")
