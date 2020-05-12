@@ -93,6 +93,14 @@ Item{
             forceActiveFocus();
         }
         
+        onActiveFocusChanged: {
+            if (activeFocus) {
+                plasmoid.status = PlasmaCore.Types.AcceptingInputStatus
+            } else {
+                plasmoid.status = PlasmaCore.Types.ActiveStatus
+            }
+        }
+        
         // Switch focus properly to terminal to allow text selection
         onFocusChanged:
         {
