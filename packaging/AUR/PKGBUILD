@@ -1,0 +1,45 @@
+# Maintainer: Bhaskar Divya <bhaskar.divya007@gmail.com>
+pkgname=termoid
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Terminal on a desktop"
+arch=('i686' 'x86_64')
+url="https://github.com/koldbyte/termoid"
+license=('GPL3')
+groups=()
+depends=('plasma-workspace')
+makedepends=('cmake' 'extra-cmake-modules' 'ki18n' 'qt5-base' 'qt5-declarative' 'qt5-tools')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=''
+changelog=''
+source=("termoid::git+https://github.com/koldbyte/termoid.git#branch=packaging-with-qmltermwidget"
+        "qmltermwidget::git+https://github.com/koldbyte/qmltermwidget.git#branch=08958f7c83a7d05627f623b8904f3e79a0b7366b_cmake_changes")
+noextract=()
+sha256sums=('SKIP' 'SKIP')
+
+prepare() {
+    cp -r qmltermwidget termoid/
+    cd termoid
+    mkdir -p build
+}
+
+build() {
+  cd termoid/build
+  export QT_SELECT=5
+  cmake ../ \
+    -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix` \
+    -DKDE_INSTALL_LIBDIR=lib \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+    -DCMAKE_BUILD_TYPE=Release
+  make
+}
+
+package() {
+  cd termoid/build
+  make DESTDIR="${pkgdir}" install
+}

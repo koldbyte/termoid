@@ -1,0 +1,4 @@
+[submodule "qmltermwidget"]
+	path = qmltermwidget
+	url = git@github.com:koldbyte/qmltermwidget.git
+	branch = 48274c75660e28d44af7c195e79accdf1bd44963_cmake_changes
