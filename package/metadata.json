@@ -1,0 +1,25 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "",
+                "Name": "Bhaskar Divya"
+            }
+        ],
+        "Category": "Utilities",
+        "Dependencies": [
+            "qtermwidget"
+        ],
+        "Description": "Terminal in a plasmoid",
+        "Icon": "utilities-terminal",
+        "Id": "com.koldbyte.kde.termoid",
+        "License": "GPL v2+",
+        "Name": "Termoid",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "0.4",
+        "Website": "https://github.com/koldbyte/termoid"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

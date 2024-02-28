@@ -1,9 +1,9 @@
 #!/bin/bash
 # Version 4
 
-plasmoidName=$(kreadconfig5 --file="$PWD/package/metadata.desktop" --group="Desktop Entry" --key="X-KDE-PluginInfo-Name")
+plasmoidName=$(jq -r '.KPlugin.Id' "$PWD/package/metadata.json")
 plasmoidName="${plasmoidName##*.}" # Strip namespace (Eg: "org.kde.plasma.")
-plasmoidVersion=$(kreadconfig5 --file="$PWD/package/metadata.desktop" --group="Desktop Entry" --key="X-KDE-PluginInfo-Version")
+plasmoidVersion=$(jq -r '.KPlugin.Version' "$PWD/package/metadata.json")
 rm ${plasmoidName}-v*.plasmoid
 cd package
 filename=${plasmoidName}-v${plasmoidVersion}.plasmoid
