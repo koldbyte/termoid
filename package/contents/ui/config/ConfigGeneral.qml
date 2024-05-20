@@ -96,6 +96,10 @@ ConfigPage {
                     property string suffix: i18n(" px")
                     value: plasmoid.configuration.fontsize
                     to: 1000
+                    property string valuews: textFromValue(value)
+                    textFromValue: function(value) {
+                        return Number(value) + suffix
+                    }
                 }
 
                 PlasmaComponents.Label {
@@ -131,6 +135,9 @@ ConfigPage {
                     from: 0
                     to: 100
                     stepSize: 1
+                    textFromValue: function(value) {
+                        return Number(value) + suffix
+                    }
                 }
 
                 PlasmaComponents.Label {
