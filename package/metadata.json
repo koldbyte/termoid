@@ -15,9 +15,7 @@
         "Id": "com.koldbyte.kde.termoid",
         "License": "GPL v2+",
         "Name": "Termoid",
-        "ServiceTypes": [
-            "Plasma/Applet"
-        ],
+        "KPackageStructure": "Plasma/Applet",
         "Version": "0.4",
         "Website": "https://github.com/koldbyte/termoid"
     },
