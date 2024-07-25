@@ -1,8 +1,8 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
-import QtQuick.Dialogs 1.2
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import org.kde.plasma.components as PlasmaComponents
 
 import ".."
 
@@ -93,9 +93,13 @@ ConfigPage {
 
                 SpinBox {
                     id: fontsize
-                    suffix: i18n(" px")
+                    property string suffix: i18n(" px")
                     value: plasmoid.configuration.fontsize
-                    maximumValue: 1000
+                    to: 1000
+                    property string valuews: textFromValue(value)
+                    textFromValue: function(value) {
+                        return Number(value) + suffix
+                    }
                 }
 
                 PlasmaComponents.Label {
@@ -127,10 +131,13 @@ ConfigPage {
                 SpinBox {
                     id: opacity_spin
                     value: plasmoid.configuration.opacity
-                    suffix: i18n(" %")
-                    minimumValue: 0
-                    maximumValue: 100
+                    property string suffix: i18n(" %")
+                    from: 0
+                    to: 100
                     stepSize: 1
+                    textFromValue: function(value) {
+                        return Number(value) + suffix
+                    }
                 }
 
                 PlasmaComponents.Label {
